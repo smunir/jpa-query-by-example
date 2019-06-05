@@ -1,15 +1,7 @@
 package demo;
 
-import com.jaxio.jpa.querybyexample.*;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
+import static org.hamcrest.CoreMatchers.is;
 
-import javax.inject.Inject;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -17,14 +9,35 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:applicationContext.xml"})
-@Transactional
+import com.jaxio.jpa.querybyexample.OrderByDirection;
+import com.jaxio.jpa.querybyexample.PropertySelector;
+import com.jaxio.jpa.querybyexample.Range;
+import com.jaxio.jpa.querybyexample.SearchMode;
+import com.jaxio.jpa.querybyexample.SearchParameters;
+
+@SpringBootTest(classes=AccountQueryByExampleTest.class)
+@RunWith(SpringRunner.class)
+@ComponentScan(value = {"demo", "com.jaxio.jpa.querybyexample"})
 public class AccountQueryByExampleTest {
-    @Inject
-    AccountRepository accountRepository;
+	
+//	@Autowired
+//	private TestEntityManager entityManager = null;
+	
+	@Autowired
+    private AccountRepository accountRepository;
+	
+//	public AccountQueryByExampleTest(AccountRepository accountRepository) {
+//		this.accountRepository = accountRepository;
+//	}
 
     @Test
     @Rollback

@@ -8,22 +8,30 @@
  */
 package demo;
 
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
-import com.jaxio.jpa.querybyexample.Identifiable;
-import org.hibernate.annotations.GenericGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.io.Serializable;
-import java.util.Date;
-
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.TemporalType.TIMESTAMP;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.Transient;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
+import com.jaxio.jpa.querybyexample.Identifiable;
 
 @Entity
 @Table(name = "ACCOUNT")

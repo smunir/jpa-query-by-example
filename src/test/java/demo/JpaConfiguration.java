@@ -8,25 +8,25 @@
  */
 package demo;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.jpa.HibernateEntityManagerFactory;
-import org.springframework.beans.factory.annotation.Value;
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-
-import javax.annotation.Resource;
-import javax.sql.DataSource;
-import java.util.Properties;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@EnableTransactionManagement
 public class JpaConfiguration {
 
-    @Resource(name = "dataSource")
-    private DataSource dataSource;
+//    @Resource(name = "dataSource")
+//    private DataSource dataSource;
 
     /**
      * Enable exception translation for beans annotated with @Repository
@@ -50,11 +50,25 @@ public class JpaConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setDataSource(dataSource);
+        emf.setDataSource(dataSource());
         // We set the persistenceXmlLocation to a different name to make it work on JBoss.
         emf.setPersistenceXmlLocation("classpath:META-INF/persistence.xml");
         emf.setPersistenceUnitName("demoPU");
         emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return emf;
     }
+    
+    
+    @Bean
+	public DataSource dataSource() {
+		
+		// no need shutdown, EmbeddedDatabaseFactoryBean will take care of this
+		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+		EmbeddedDatabase db = builder
+			.setType(EmbeddedDatabaseType.H2) //.H2 or .DERBY
+			.addScript("classpath:01-create.sql")
+			//.addScript("db/sql/insert-data.sql")
+			.build();
+		return db;
+	}
 }
