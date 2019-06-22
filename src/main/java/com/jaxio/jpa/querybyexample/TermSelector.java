@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static org.apache.commons.lang.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 public class TermSelector implements Serializable {
     private static final long serialVersionUID = 1L;

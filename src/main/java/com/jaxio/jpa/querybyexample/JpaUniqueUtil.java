@@ -15,7 +15,7 @@
  */
 package com.jaxio.jpa.querybyexample;
 
-import org.apache.commons.lang.WordUtils;
+import org.apache.commons.text.WordUtils;
 import org.springframework.context.i18n.LocaleContextHolder;
 
 import javax.inject.Inject;
@@ -31,7 +31,7 @@ import static com.google.common.collect.Iterables.concat;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static java.util.Collections.emptyList;
-import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
+import static org.apache.commons.lang3.StringUtils.equalsIgnoreCase;
 import static org.hibernate.proxy.HibernateProxyHelper.getClassWithoutInitializingProxy;
 
 @Named

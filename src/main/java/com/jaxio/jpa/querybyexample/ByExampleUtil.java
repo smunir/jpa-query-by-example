@@ -32,7 +32,7 @@ import java.util.List;
 import static com.google.common.collect.Lists.newArrayList;
 import static java.util.Collections.emptyList;
 import static javax.persistence.metamodel.Attribute.PersistentAttributeType.*;
-import static org.apache.commons.lang.StringUtils.isNotEmpty;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 /**
  * Helper to create predicate by example. It processes associated entities (1 level deep).

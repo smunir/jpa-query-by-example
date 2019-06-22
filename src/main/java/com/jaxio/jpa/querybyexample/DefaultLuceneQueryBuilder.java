@@ -28,7 +28,7 @@ import java.util.List;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Lists.newArrayList;
-import static org.apache.commons.lang.StringUtils.*;
+import static org.apache.commons.lang3.StringUtils.*;
 import static org.apache.lucene.queryparser.classic.QueryParser.escape;
 
 public class DefaultLuceneQueryBuilder implements LuceneQueryBuilder {

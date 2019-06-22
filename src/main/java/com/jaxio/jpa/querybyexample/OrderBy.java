@@ -15,7 +15,7 @@
  */
 package com.jaxio.jpa.querybyexample;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.metamodel.Attribute;
 import java.io.Serializable;

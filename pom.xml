@@ -13,7 +13,6 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-
     <groupId>com.jaxio</groupId>
     <artifactId>jpa-querybyexample</artifactId>
     <packaging>jar</packaging>
@@ -90,7 +89,7 @@
     <!-- DEPENDENCIES -->
     <!-- ~~~~~~~~~~~~ -->
     <dependencies>
-            <!-- ~~~~~~ -->
+        <!-- ~~~~~~ -->
         <!-- SPRING -->
         <!-- ~~~~~~ -->
         <dependency>
@@ -145,12 +144,16 @@
                     <artifactId>lucene-kuromoji</artifactId>
                     <groupId>org.apache.lucene</groupId>
                 </exclusion>
+                <exclusion>
+		            <groupId>org.hibernate</groupId>
+		            <artifactId>hibernate-core</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-parsers</artifactId>
-            <version>1.11</version>
+            <version>1.21</version>
             <exclusions>
                 <exclusion>
                     <artifactId>commons-logging</artifactId>
@@ -168,7 +171,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>18.0</version>
+            <version>19.0</version>
         </dependency>
         <dependency>
             <groupId>commons-beanutils</groupId>
@@ -181,6 +184,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-text</artifactId>
+		    <version>1.6</version>
+		</dependency>
     </dependencies>
     <build>
         <plugins>
@@ -198,7 +207,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            <plugin>
+            <!-- <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
             <executions>
@@ -211,7 +220,7 @@
                     </configuration>
                 </execution>
             </executions>
-        </plugin>
+        	</plugin> -->
             <plugin>
                 <!-- http://maven.apache.org/plugins/maven-release-plugin/ -->
                 <groupId>org.apache.maven.plugins</groupId>

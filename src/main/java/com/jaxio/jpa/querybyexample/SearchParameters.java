@@ -16,7 +16,7 @@
 package com.jaxio.jpa.querybyexample;
 
 import com.google.common.base.Function;
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.metamodel.Attribute;
 import javax.persistence.metamodel.SingularAttribute;
@@ -31,7 +31,7 @@ import static com.google.common.collect.Lists.transform;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Sets.newHashSet;
 import static com.jaxio.jpa.querybyexample.PropertySelector.newPropertySelector;
-import static org.apache.commons.lang.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 /*
  * The SearchParameters is used to pass search parameters to the DAO layer.

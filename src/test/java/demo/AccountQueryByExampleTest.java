@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.Rollback;
@@ -24,6 +25,7 @@ import com.jaxio.jpa.querybyexample.Range;
 import com.jaxio.jpa.querybyexample.SearchMode;
 import com.jaxio.jpa.querybyexample.SearchParameters;
 
+//@EnableAutoConfiguration
 @SpringBootTest(classes=AccountQueryByExampleTest.class)
 @RunWith(SpringRunner.class)
 @ComponentScan(value = {"demo", "com.jaxio.jpa.querybyexample"})
